@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+    <style>
+        #ft_list div {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button id="new_todo">New</button>
+<div id="ft_list"></div>
+
+<script>
+
+function saveToDoList() {
+    const list = [];
+    document.querySelectorAll('#ft_list div').forEach(item => list.push(item.textContent));
+    document.cookie = "todoList=" + JSON.stringify(list) + "; path=/";
+}
+
+function loadToDoList() {
+    const cookies = document.cookie.split('; ');
+    const todoCookie = cookies.find(cookie => cookie.startsWith('todoList='));
+    if (todoCookie) {
+        const todoList = JSON.parse(todoCookie.split('=')[1]);
+        todoList.forEach(todo => addToDo(todo));
+    }
+}
+
+function addToDo(text) {
+    if (text.trim() === '') return;
+
+    const newDiv = document.createElement('div');
+    newDiv.textContent = text;
+    newDiv.addEventListener('click', () => {
+        const confirmDelete = confirm('Do you want to remove this To-Do?');
+        if (confirmDelete) {
+            newDiv.remove();
+            saveToDoList();
+        }
+    });
+
+    const list = document.getElementById('ft_list');
+    list.insertBefore(newDiv, list.firstChild);
+    saveToDoList();
+}
+
+document.getElementById('new_todo').addEventListener('click', () => {
+    const newToDo = prompt('Enter a new To-Do:');
+    if (newToDo) addToDo(newToDo);
+});
+
+window.onload = loadToDoList;
+</script>
+
+</body>
+</html>
