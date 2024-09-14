@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Scrolling Web Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .parallax1 {
+      background-image: url('https://tse1.mm.bing.net/th?id=OIP.ubLJpaR_9_l1VG3tkGGdWQHaEK&pid=Api&P=0&h=220');
+    }
+
+    .parallax2 {
+      background-image: url('https://tse2.mm.bing.net/th?id=OIP.Sqf3MlT4rap8Wqq-E7tJogAAAA&pid=Api&P=0&h=220');
+    }
+
+    .content {
+      text-align: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .message-section {
+      background-color: black;
+      color: white;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .message-section .content {
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="parallax parallax1">
+    <div class="content">
+      <h1>I like miss Robin</h1>
+      <p>Welcome to my w w w worlddddd</p>
+    </div>
+  </section>
+
+  <section class="message-section">
+    <div class="content">
+      <h2>Hello World</h2>
+      <p>Beware Jumpscare!</p>
+    </div>
+  </section>
+
+  <section class="parallax parallax2">
+    <div class="content">
+      <h1>Haha Rickroll</h1>
+      <p>Never gonna give you up</p>
+    </div>
+  </section>
+
+</body>
+</html>
